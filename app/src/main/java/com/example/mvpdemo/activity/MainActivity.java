@@ -15,6 +15,8 @@ import com.example.mvpdemo.view.IEmojiView;
 
 import java.util.List;
 
+import cn.finalteam.okhttpfinal.HttpRequest;
+
 public class MainActivity extends BaseActivity<EmojiPresenter,IEmojiView> implements IEmojiView {
 
     private ListView listView;
