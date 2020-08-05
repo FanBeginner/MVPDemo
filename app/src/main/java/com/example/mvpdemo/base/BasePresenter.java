@@ -7,30 +7,38 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 import java.lang.ref.WeakReference;
 
-public class BasePresenter<T extends IBaseView> implements LifecycleObserver {
+public abstract class BasePresenter<M extends BaseModel,T extends IBaseView> implements LifecycleObserver {
     //弱引用
-    protected WeakReference<T> view;
+    protected WeakReference<T> mView;
 
+    protected M mModel;
+
+    public BasePresenter(){
+        this.mModel = getmModelInstance();
+    }
     public T getView(){
-        return view.get();
+        return mView.get();
     }
 
     /*
      * 绑定
      * */
     public void attachView(T view){
-        this.view=new WeakReference<>(view);
+        this.mView=new WeakReference<>(view);
     }
 
     /*
      * 解绑
      * */
     public void detachView(){
-        if(view != null){
-            view.clear();
-            view=null;
+        if(mView != null){
+            mView.clear();
+            mView=null;
         }
     }
+
+    public abstract M getmModelInstance();
+
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     protected void onCreate(LifecycleOwner owner){
 

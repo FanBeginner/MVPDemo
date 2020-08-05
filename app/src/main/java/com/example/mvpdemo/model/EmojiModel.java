@@ -1,12 +1,15 @@
 package com.example.mvpdemo.model;
 
 import com.example.mvpdemo.R;
+import com.example.mvpdemo.base.BaseModel;
+import com.example.mvpdemo.base.BasePresenter;
 import com.example.mvpdemo.bean.Emoji;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmojiModel implements IEmojiModel{
+public class EmojiModel extends BaseModel implements IEmojiModel{
+
     @Override
     public void loadEmojiData(OnLoadListener onLoadListener) {
         onLoadListener.onComplete(getData());

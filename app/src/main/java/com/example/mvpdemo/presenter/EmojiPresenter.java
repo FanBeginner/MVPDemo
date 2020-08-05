@@ -12,18 +12,18 @@ import com.example.mvpdemo.view.IEmojiView;
 
 import java.util.List;
 
-public class EmojiPresenter extends BasePresenter<IEmojiView> {
+public class EmojiPresenter extends BasePresenter<EmojiModel,IEmojiView> {
     //持有View层
 //    IEmojiView iEmojiView;
 
     //持有model层
-    IEmojiModel iEmojiModel = new EmojiModel();
+//    IEmojiModel iEmojiModel = new EmojiModel();
 
 
     //执行UI逻辑
     public void fetch() {
-        if (getView() != null && iEmojiModel != null) {
-            iEmojiModel.loadEmojiData(new IEmojiModel.OnLoadListener() {
+        if (getView() != null && mModel != null) {
+            mModel.loadEmojiData(new IEmojiModel.OnLoadListener() {
                 @Override
                 public void onComplete(List<Emoji> emojis) {
                     getView().showEmojiView(emojis);
@@ -35,6 +35,11 @@ public class EmojiPresenter extends BasePresenter<IEmojiView> {
                 }
             });
         }
+    }
+
+    @Override
+    public EmojiModel getmModelInstance() {
+        return new EmojiModel();
     }
 
     @Override

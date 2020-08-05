@@ -10,15 +10,15 @@ import com.example.mvpdemo.view.INewsView;
 
 import java.util.List;
 
-public class NewsPresenter extends BasePresenter<INewsView> {
+public class NewsPresenter extends BasePresenter<NewsModel,INewsView> {
     private static final String TAG = "NewsPresenter";
     //持有modle层
-    NewsModel newsModel=new NewsModel();
+//    NewsModel newsModel=new NewsModel();
     String url="http://v.juhe.cn/toutiao/index?type=top&key=cc651913ae067cf88c7d9ec710fe5b3a";
 
     public void fetch(){
-        if(getView()!=null&&newsModel!=null){
-            newsModel.loadNewsData(url,new INewsModel.LoadTasksCallBack<TitleData>() {
+        if(getView()!=null&&mModel!=null){
+            mModel.loadNewsData(url,new INewsModel.LoadTasksCallBack<TitleData>() {
                 @Override
                 public void onSuccess(TitleData data) {
                     Log.e(TAG, "onSuccess: "+data.getResult().getData().get(0).getTitle());
@@ -31,5 +31,10 @@ public class NewsPresenter extends BasePresenter<INewsView> {
                 }
             });
         }
+    }
+
+    @Override
+    public NewsModel getmModelInstance() {
+        return new NewsModel();
     }
 }

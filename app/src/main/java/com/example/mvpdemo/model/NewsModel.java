@@ -1,5 +1,7 @@
 package com.example.mvpdemo.model;
 
+import com.example.mvpdemo.base.BaseModel;
+import com.example.mvpdemo.base.BasePresenter;
 import com.example.mvpdemo.bean.TitleData;
 
 import java.util.List;
@@ -7,7 +9,8 @@ import java.util.List;
 import cn.finalteam.okhttpfinal.BaseHttpRequestCallback;
 import cn.finalteam.okhttpfinal.HttpRequest;
 
-public class NewsModel implements INewsModel<String> {
+public class NewsModel extends BaseModel implements INewsModel<String> {
+
     @Override
     public void loadNewsData(String url, final LoadTasksCallBack callBack) {
 
