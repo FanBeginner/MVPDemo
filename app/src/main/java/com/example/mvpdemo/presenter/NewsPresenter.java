@@ -21,7 +21,6 @@ public class NewsPresenter extends BasePresenter<NewsModel,INewsView> {
             mModel.loadNewsData(url,new INewsModel.LoadTasksCallBack<TitleData>() {
                 @Override
                 public void onSuccess(TitleData data) {
-                    Log.e(TAG, "onSuccess: "+data.getResult().getData().get(0).getTitle());
                     getView().showNewsView(data);
                 }
 

@@ -7,9 +7,15 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
     <Button
-        android:text="newsActivity"
+        android:id="@+id/btn_getNewsData"
+        android:text="头条"
         android:textAllCaps="false"
-        android:onClick="startNewsActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_welfare"
+        android:text="福利"
+        android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <ListView

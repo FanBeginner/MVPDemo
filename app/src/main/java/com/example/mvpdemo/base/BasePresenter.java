@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 
 public abstract class BasePresenter<M extends BaseModel,T extends IBaseView> implements LifecycleObserver {
     //弱引用
-    protected WeakReference<T> mView;
+    private WeakReference<T> mView;
 
     protected M mModel;
 
